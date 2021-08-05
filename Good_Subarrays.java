@@ -3,10 +3,11 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Good_Subarrays {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +36,26 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
+        RealScanner sc=new RealScanner();
+        int t=sc.nextInt();
+        while (t-->0){
             int n=sc.nextInt();
-            System.out.println("Yes");
+            String s=sc.next();
+            Map<Long,Long>m=new HashMap<>();
+            m.put(0L,1L);
+            long sum=0,res=0;
+            for (int i=0;i<s.length();i++){
+                sum+=s.charAt(i)-'0';
+                long key=sum-i-1;
+                if (!m.containsKey(key)){
+                    m.put(key,0L);
+                }
+                m.put(key,m.getOrDefault(key,0L)+1);
+             //   System.out.println(m);
+                res+=m.get(key)-1;
+            }
+            System.out.println(res);
         }
     }
 }

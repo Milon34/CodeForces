@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class New_Year_Candles {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,18 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int a,b;
+        a=sc.nextInt();
+        b=sc.nextInt();
+        int per=a;
+        int sum=0,div=0,rem=0;
+        while (a>=b){
+            div=a/b;
+            sum+=div;
+            rem=a%b;
+            a=div+rem;
         }
+        System.out.println(per+sum);
     }
 }

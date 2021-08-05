@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Binary_Decimal {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +35,22 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
+    static int count(String s) {
+        int m = Integer.MIN_VALUE;
+        for (int i = 0; i < s.length(); i++) {
+            int t = s.charAt(i) - '0';
+            if (t > m) {
+                m = t;
+            }
+        }
+        return m;
+    }
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int t = sc.nextInt();
+        while (t-- > 0) {
+          String s=sc.next();
+            System.out.println(count(s));
         }
     }
 }

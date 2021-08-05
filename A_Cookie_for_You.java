@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class A_Cookie_for_You {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +34,24 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int t=sc.nextInt();
+        while (t-->0){
+            long a,b,n,m;
+            a=sc.nextLong();
+            b=sc.nextLong();
+            n=sc.nextLong();
+            m= sc.nextLong();
+            if (a+b<n+m){
+                System.out.println("No");
+                continue;
+            }
+            if (m<=Math.min(a,b)){
+                System.out.println("Yes");
+            }else {
+                System.out.println("No");
+            }
         }
     }
 }

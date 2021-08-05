@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Magic_Numbers {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,34 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        String s = sc.next();
+//        int count1=0,count4=0;
+        boolean check = true;
+        for (int i = 0;i < s.length();) {
+            try {
+                if (s.charAt(i) == '1' && s.charAt(i + 1) == '4' && s.charAt(i + 2) == '4') {
+                    i += 3;
+                    continue;
+                }
+                if (s.charAt(i) == '1' && s.charAt(i + 1) == '4') {
+                    i += 2;
+                    continue;
+                }
+                if (s.charAt(i) == '1') {
+                    i++;
+                } else {
+                    check = false;
+                    break;
+                }
+            }catch (Exception e){
+                break;
+            }
+        }
+        if (check){
+            System.out.println("YES");
+        }else {
+            System.out.println("NO");
         }
     }
 }

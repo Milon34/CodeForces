@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Brains_Photos {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,32 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int m, n;
+        m = sc.nextInt();
+        n = sc.nextInt();
+        String[][] s = new String[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                s[i][j] = sc.next();
+            }
+        }
+        int count = 0;
+        boolean check = true;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (s[i][j].equals("B") || s[i][j].equals("W") || s[i][j].equals("G")) {
+
+                } else {
+                    count++;
+                    check = false;
+                }
+            }
+        }
+        if (count < 3&&check) {
+            System.out.println("#Black&White");
+        } else {
+            System.out.println("#Color");
         }
     }
 }

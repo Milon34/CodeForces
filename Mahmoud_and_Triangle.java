@@ -3,10 +3,10 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Mahmoud_and_Triangle {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +37,24 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        Arrays.sort(arr);
+        boolean check = false;
+        for (int i = 0; i < n - 2; i++) {
+            if (arr[i] + arr[i + 1] > arr[i + 2]) {
+                check = true;
+                break;
+            }
+        }
+        if (check) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
         }
     }
 }

@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Divisibility_Problem {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,23 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int t=sc.nextInt();
+        while (t-->0){
+            int a=sc.nextInt();
+            int b=sc.nextInt();
+            int count=0;
+//            while (a%b!=0){
+//                a++;
+//                count++;
+//            }
+            if (a%b==0){
+                System.out.println(0);
+            }else {
+                int val=(a/b)+1;
+                int per=val*b;
+                System.out.println(per-a);
+            }
         }
     }
 }

@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Anton_and_Digits {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,20 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
-        }
+        RealScanner sc=new RealScanner();
+        long a,b,c,d;
+        a=sc.nextLong();
+        b=sc.nextLong();
+        c=sc.nextLong();
+        d=sc.nextLong();
+        long minBig=Math.min(a,Math.min(c,d));
+        long minSm=Math.min(Math.abs(minBig-a),b);
+//        if (a<b){
+//           // minSm=Math.abs(a-b);
+//        }else if (a>b){
+//            minSm=b;
+//        }
+        long perfectSum=(minBig*256)+(minSm*32);
+        System.out.println(perfectSum);
     }
 }

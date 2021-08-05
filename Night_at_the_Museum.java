@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Night_at_the_Museum {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,16 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        String s=sc.next();
+        int res=0;
+        char st='a';
+        for (int i=0;i<s.length();i++){
+          int val1=Math.abs(s.charAt(i)-st);
+          int val2=26-val1;
+          res+=Math.min(val1,val2);
+          st=s.charAt(i);
         }
+        System.out.println(res);
     }
 }

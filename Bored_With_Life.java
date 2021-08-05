@@ -3,10 +3,10 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Bored_With_Life {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -36,12 +36,20 @@ public class Game {
         }
     }
 
-    public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+    static BigInteger factorial(long N) {
+        BigInteger fact= new BigInteger("1");
+        for (long i = 2; i <= N; i++) {
+            fact = fact.multiply(BigInteger.valueOf(i));
         }
+        return fact;
+    }
+
+    public static void main(String[] args) {
+        RealScanner sc=new RealScanner();
+        long  a,b;
+        a=sc.nextLong();
+        b=sc.nextLong();
+        long val=Math.min(a,b);
+        System.out.println(factorial(val));
     }
 }

@@ -3,10 +3,10 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.io.PrintWriter;
+import java.util.LinkedList;
 import java.util.StringTokenizer;
-
-public class Game {
+public class Social_Network {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +35,29 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        PrintWriter out = new PrintWriter(System.out);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        LinkedList<Integer> s = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            int a = sc.nextInt();
+            if (s.size() > k) {
+                s.pollLast();
+            }
+            if (!s.contains(a)) {
+                s.addFirst(a);
+            }
         }
+        if (s.size() > k) {
+            s.pollLast();
+        }
+        out.println(s.size());
+        for (int i : s) {
+            out.print(i + " ");
+        }
+        out.flush();
+        out.close();
     }
 }

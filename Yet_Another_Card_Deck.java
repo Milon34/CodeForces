@@ -3,10 +3,10 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.io.PrintWriter;
+import java.util.*;
 
-public class Game {
+public class Yet_Another_Card_Deck {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +35,31 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        PrintWriter out=new PrintWriter(System.out);
+        int n, k;
+        n = sc.nextInt();
+        k = sc.nextInt();
+        LinkedList<Integer> l=new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+           l.add(sc.nextInt());
         }
+        int[] arrFast=new int[k];
+        for (int i = 0; i < k; i++) {
+            arrFast[i]=sc.nextInt();
+        }
+        int arr[]=new int[k];
+        for (int i = 0; i < arrFast.length; i++) {
+            int valFast=l.indexOf(new Integer(arrFast[i]));
+            arr[i]=valFast+1;
+            l.remove(valFast);
+            l.addFirst(arrFast[i]);
+        }
+        for (int i:arr){
+            out.print(i+" ");
+        }
+        out.flush();
+        out.close();
     }
 }

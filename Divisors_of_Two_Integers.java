@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class Game {
+public class Divisors_of_Two_Integers {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,28 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int n = sc.nextInt();
+        List<Integer> l = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            l.add(sc.nextInt());
         }
-    }
+        int maxVal = Collections.max(l);
+        Collections.sort(l);
+        int[] arr=new int[10005];
+        int[] arr1=new int[150];
+        int k=0;
+        for (int i = 0; i < n; i++) {
+            if (arr[l.get(i)]==0 && maxVal % l.get(i) == 0) {
+                arr[l.get(i)]=1;
+            } else {
+                k++;
+               arr1[k]=l.get(i);
+            }
+        }
+        //System.out.println(k);
+       // Arrays.sort(arr1);
+       // System.out.println(Arrays.toString(arr1));
+        System.out.println(maxVal+" "+arr1[k]);
+}
 }

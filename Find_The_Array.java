@@ -1,12 +1,13 @@
 package Codeforces;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+
 import java.util.StringTokenizer;
 
-public class Game {
+public class Find_The_Array {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +38,11 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int test = sc.nextInt();
+        while (test-- > 0) {
+            int n = sc.nextInt();
+            System.out.println((int) Math.ceil(Math.sqrt(n)));
         }
     }
 }

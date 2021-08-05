@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class Game {
+public class Potions {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,35 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        long n = sc.nextLong();
+        Long[] arr = new Long[(int) n];
+        List<Long> l = new ArrayList<>();
+        long count = 0, sum = 0;
+        for (long i = 0; i < n; i++) {
+            arr[(int) i] = sc.nextLong();
+//            if (arr[(int) i] >= 0) {
+//                count++;
+//                sum+=arr[(int) i];
+//            }
+//            if (arr[(int) i]<0){
+//                l.add(arr[(int) i]);
+//            }
+            sum += arr[(int) i];
         }
+        Arrays.sort(arr);
+        if (sum >= 0) {
+            System.out.println(n);
+            return;
+        }
+        for (long i = 0; i < n; i++) {
+            if (sum - arr[(int) i] >= 0) {
+                count++;
+                break;
+            } else {
+                continue;
+            }
+        }
+        System.out.println(n - count);
     }
 }

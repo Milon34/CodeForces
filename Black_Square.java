@@ -3,10 +3,11 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Black_Square {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +38,17 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        List<Integer> l=new ArrayList<>();
+        for (int i=0;i<4;i++){
+            int a=sc.nextInt();
+            l.add(a);
         }
+        String myS=sc.next();
+        int sum=0;
+        for (int i=0;i<myS.length();i++){
+            sum+=l.get(myS.charAt(i)-'0'-1);
+        }
+        System.out.println(sum);
     }
 }

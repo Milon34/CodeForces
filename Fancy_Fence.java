@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Fancy_Fence {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,24 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int t=sc.nextInt();
+        while (t-- >0){
+            int a=sc.nextInt();
+            boolean check=false;
+            int val=0;
+            for (int i=3;i<=180;i++){
+                val=(i-2)*(180/i);
+                if (val==a){
+                    check=true;
+                    break;
+                }
+            }
+            if (360%(180-a)==0){
+                System.out.println("YES");
+            }else {
+                System.out.println("NO");
+            }
         }
     }
 }

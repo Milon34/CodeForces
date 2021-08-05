@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class PalindromPre {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -36,12 +35,29 @@ public class Game {
         }
     }
 
+    public static boolean isPalindrom(String s) {
+        StringBuffer sb = new StringBuffer(s);
+        String finals = String.valueOf(sb.reverse());
+        if (s.equals(finals)) {
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            String s = sc.next();
+            if (!isPalindrom(s + "a")) {
+                System.out.println("YES");
+                System.out.println(s + "a");
+            } else if (!isPalindrom("a" + s)) {
+                System.out.println("YES");
+                System.out.println("a" + s);
+            } else {
+                System.out.println("NO");
+            }
         }
     }
 }

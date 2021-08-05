@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Kana_and_Dragon_Quest_game {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,28 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int t=sc.nextInt();
+        while (t-->0){
+            int x,m,n;
+            x=sc.nextInt();
+            m=sc.nextInt();
+            n=sc.nextInt();
+            if (x<=10&&n==1){
+                System.out.println("YES");
+            }else {
+                while (m-- > 0) {
+                    x = (x / 2) + 10;
+                }
+                while (n-- > 0) {
+                    x = x - 10;
+                }
+                if (x <= 0) {
+                    System.out.println("YES");
+                } else {
+                    System.out.println("NO");
+                }
+            }
         }
     }
 }

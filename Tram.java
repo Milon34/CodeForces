@@ -3,10 +3,12 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Tram {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +39,22 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int n=sc.nextInt();
+        List<Integer> l=new ArrayList<>();
+        int sum=0;
+        while (n-->0){
+            int a,b;
+            a=sc.nextInt();
+            b=sc.nextInt();
+            if (a<=b){
+                sum+=(b-a);
+                l.add(sum);
+            }else {
+                sum-=(a-b);
+                l.add(sum);
+            }
         }
+        System.out.println(Collections.max(l));
     }
 }

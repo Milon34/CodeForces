@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Perfect_Number {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,24 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int n = sc.nextInt();
+        // List<Integer> l=new ArrayList<>();
+        int inc=0;
+        while (n!=0) {
+            inc++;
+            String s = String.valueOf(inc);
+            int sum = 0;
+            for (int j = 0; j < s.length(); j++) {
+                int ch = s.charAt(j) - 48;
+                sum += ch;
+            }
+            if (sum == 10) {
+               n--;
+            }
         }
+        System.out.println(inc);
     }
+    //System.out.println(l.size())
 }
+

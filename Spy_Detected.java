@@ -3,10 +3,11 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Spy_Detected {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +38,26 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
+        RealScanner sc=new RealScanner();
+        int t=sc.nextInt();
+        while (t-- >0){
             int n=sc.nextInt();
-            System.out.println("Yes");
+            int[] arr=new int[101];
+            List<Integer> l=new ArrayList<>();
+            for (int i=0;i<n;i++){
+                int a=sc.nextInt();
+                arr[a]++;
+                l.add(a);
+            }
+            int val=0;
+            for (int i=0;i<arr.length;i++){
+                if (arr[i]==1){
+                    val=i;
+                    break;
+                }
+            }
+            System.out.println(l.indexOf(val)+1);
+
         }
     }
 }

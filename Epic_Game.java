@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Epic_Game {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -36,12 +35,41 @@ public class Game {
         }
     }
 
-    public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+    static int getGcd(int n1, int n2) {
+        if (n2 == 0) {
+            return n1;
         }
+        return getGcd(n2, n1 % n2);
+    }
+
+    public static void main(String[] args) {
+        RealScanner sc = new RealScanner();
+        int a, b, n;
+        a = sc.nextInt();
+        b = sc.nextInt();
+        n = sc.nextInt();
+        int count = 0;
+        int per = n;
+        boolean check;
+        while (true) {
+            int val1 = getGcd(a, per);
+            per = per - val1;
+            if (per<=0){
+                check=true;
+                break;
+            }
+            int val2 = getGcd(b, per);
+            per=per-val2;
+            count++;
+            if (per<=0) {
+                check=false;
+                break;
+            }
+        }
+       if (!check){
+           System.out.println(1);
+       }else {
+           System.out.println(0);
+       }
     }
 }

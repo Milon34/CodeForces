@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Borze {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,28 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        String s = sc.next();
+        String myS = "";
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '.') {
+                myS += '0';
+            }
+            try {
+                if (s.charAt(i) == '-') {
+                    if (s.charAt(i + 1) == '.') {
+                        myS += '1';
+                        i++;
+                    }
+                   else if (s.charAt(i + 1) == '-') {
+                        myS += '2';
+                        i++;
+                    }
+                }
+            } catch (Exception e) {
+
+            }
         }
+        System.out.println(myS);
     }
 }

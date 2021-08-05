@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Road_To_Zero {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,22 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            long x, y, a, b;
+            x = sc.nextLong();
+            y = sc.nextLong();
+            a = sc.nextLong();
+            b = sc.nextLong();
+            b = Math.min(b, 2 * a);
+//            if (x < y) {
+//                long temp = x;
+//                x = y;
+//                y = temp;
+//            }
+            long val=Math.min(x,y);
+            System.out.println((val * b) + (Math.abs(x - y) * a));
         }
     }
 }

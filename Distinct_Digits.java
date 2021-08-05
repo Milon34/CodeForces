@@ -3,10 +3,11 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Distinct_Digits {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +38,21 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int n,k;
+        n=sc.nextInt();
+        k=sc.nextInt();
+        for (int i=n;i<=k;i++){
+            String s= String.valueOf(i);
+            HashSet<Character> h=new HashSet<>();
+            for (int j=0;j<s.length();j++){
+                h.add(s.charAt(j));
+            }
+            if (h.size()==s.length()){
+                System.out.println(i);
+                return;
+            }
         }
+        System.out.println(-1);
     }
 }

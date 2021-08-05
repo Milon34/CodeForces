@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Pretty_Permutations {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +35,29 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
+        RealScanner sc=new RealScanner();
+        int t=sc.nextInt();
+        while (t-->0){
             int n=sc.nextInt();
-            System.out.println("Yes");
+            int[] arr=new int[n+1];
+            for (int i=1;i<=n;i++){
+                arr[i]=i;
+            }
+            if (n%2==1){
+                int temp=arr[n-1];
+                arr[n-1]=arr[n];
+                arr[n]=temp;
+            }
+            for (int i=2;i<=n;i+=2){
+                int temp=arr[i-1];
+                arr[i-1]=arr[i];
+                arr[i]=temp;
+            }
+            for (int i=1;i<=n;i++){
+                System.out.print(arr[i]+" ");
+            }
+            System.out.println();
         }
     }
 }

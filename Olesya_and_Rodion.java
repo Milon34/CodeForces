@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Olesya_and_Rodion {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,26 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int n,k;
+        n=sc.nextInt();
+        k=sc.nextInt();
+        String s="";
+        if (n==1&&k==10){
+            System.out.println(-1);
+            return;
+        }
+        if (k!=10) {
+            for (int i = 0; i < n; i++) {
+                s+=k;
+            }
+            System.out.println(s);
+        }else {
+            String myS="1";
+            for (int i=0;i<n-1;i++){
+                myS+="0";
+            }
+            System.out.println(myS);
         }
     }
 }

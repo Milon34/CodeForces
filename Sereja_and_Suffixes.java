@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
-public class Game {
+public class Sereja_and_Suffixes {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,26 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int n, m;
+        n = sc.nextInt();
+        m = sc.nextInt();
+        List<Integer> l = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            l.add(sc.nextInt());
+        }
+        HashSet<Integer> h = new HashSet<>();
+        int[] arr = new int[n];
+        for (int i = n-1; i >= 0; i--) {
+            h.add(l.get(i));
+            arr[i] = h.size();
+           // System.out.println(h);
+           // System.out.println(Arrays.toString(arr));
+        }
+        //System.out.println(h);
+        for (int i = 0; i < m; i++) {
+           int a=sc.nextInt();
+            System.out.println(arr[a-1]);
         }
     }
 }

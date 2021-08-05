@@ -1,12 +1,13 @@
 package Codeforces;
 
+import DS_ALGO.SegmentTree;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Maximum_SubArray_Sum {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -36,12 +37,23 @@ public class Game {
         }
     }
 
-    public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+    static long maxSubSum(long[] a, long len) {
+        long let_max = a[0];
+        long cur_max = a[0];
+        for (int i = 1; i < len; i++) {
+            cur_max = Math.max(a[i], cur_max + a[i]);
+            let_max = Math.max(let_max, cur_max);
         }
+        return let_max;
+    }
+
+    public static void main(String[] args) {
+        RealScanner sc = new RealScanner();
+        long n = sc.nextLong();
+        long[] arr=new long[(int) n];
+        for (int i=0;i<n;i++){
+            arr[i]=sc.nextLong();
+        }
+        System.out.println(maxSubSum(arr,n));
     }
 }

@@ -3,10 +3,10 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Ilya_and_Queries {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +37,28 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        PrintWriter out = new PrintWriter(System.out);
+        String s = sc.next();
+        int count=0;
+        int[] dp=new int[100005];
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (s.charAt(i) == s.charAt(i + 1)) {
+                count++;
+            }
+            dp[i+1]=count;
         }
+        int n = sc.nextInt();
+        for (int i=0;i<6;i++){
+            System.out.print(dp[i]+" ");
+        }
+        while (n-- > 0) {
+            int a, b;
+            a = sc.nextInt();
+            b = sc.nextInt();
+            //out.println(Math.abs(dp[a-1]-dp[b-1]));
+        }
+        out.flush();
+        out.close();
     }
 }

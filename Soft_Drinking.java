@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Soft_Drinking {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,22 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
-        }
+        RealScanner sc=new RealScanner();
+        int n, k, l, c, d, p, nl, np;
+        n=sc.nextInt();
+        k=sc.nextInt();
+        l=sc.nextInt();
+        c=sc.nextInt();
+        d=sc.nextInt();
+        p=sc.nextInt();
+        nl=sc.nextInt();
+        np=sc.nextInt();
+        int totalDrink,toast,enoughToast;
+        totalDrink=k*l;
+        toast=totalDrink/nl;
+        enoughToast=c*d;
+        int saltEnough=p/np;
+        System.out.println(Math.min(toast,Math.min(enoughToast,saltEnough))/n);
+
     }
 }

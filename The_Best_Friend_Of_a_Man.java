@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class The_Best_Friend_Of_a_Man {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,31 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int n,k;
+        n=sc.nextInt();
+        k=sc.nextInt();
+        int sum=0;
+        int[] arr=new int[n];
+        for (int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+            sum+=arr[i];
+        }
+//        if (sum==k){
+//            System.out.println(sum+k);
+//        }else if (sum>k){
+//            System.out.println(0);
+//        }else {
+//            System.out.println(k-sum);
+//        }
+        int s=arr[0];
+        for (int i=1;i<n;i++){
+            arr[i]=Math.max(k-arr[i-1],arr[i]);
+            s+=arr[i];
+        }
+        System.out.println(Math.abs(sum-s));
+        for (int i:arr){
+            System.out.print(i+" ");
         }
     }
 }

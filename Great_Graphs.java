@@ -3,10 +3,8 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
-
-public class Game {
+import java.util.*;
+public class Great_Graphs {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +33,26 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
-        }
+       RealScanner sc=new RealScanner();
+       int t=sc.nextInt();
+       while (t-->0){
+           long n=sc.nextLong();
+           long[] arr=new long[(int) n];
+           //List<Integer> l=new ArrayList<>();
+           for (int i=0;i<n;i++){
+               arr[i]=sc.nextInt();
+              // l.add(sc.nextLong());
+           }
+           Arrays.sort(arr);
+         //  Collections.sort(l);
+           long val=0,s=0;
+           for (int i=2;i<n;i++){  //Main
+               s+=arr[i-2];
+               val-=arr[i]*(i-1);
+               val+=s;
+           }
+           System.out.println(val);
+       }
     }
 }

@@ -3,10 +3,12 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Bogosort {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +39,33 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
+        RealScanner sc=new RealScanner();
+        int t=sc.nextInt();
+        while (t-->0){
             int n=sc.nextInt();
-            System.out.println("Yes");
+            int[] arr=new int[n];
+            for (int i=0;i<n;i++){
+                arr[i]=sc.nextInt();
+            }
+            Arrays.sort(arr);
+            List<Integer> l1=new ArrayList<>();
+            List<Integer> l2=new ArrayList<>();
+            for (int i=n-1;i>=0;i--){
+//                if (i%2==0){
+//                    l1.add(arr[i]);
+//                }else {
+//                    l2.add(arr[i]);
+//                }
+                System.out.print(arr[i]+" ");
+            }
+            System.out.println();
+//            for (int i:l2){
+//                System.out.print(i+" ");
+//            }
+//            for (int i:l1){
+//                System.out.print(i+" ");
+//            }
+//            System.out.println();
         }
     }
 }

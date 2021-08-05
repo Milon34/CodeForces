@@ -3,10 +3,10 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Collecting_Coins {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +37,27 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        long t=sc.nextLong();
+        long[] arr=new long[3];
+        while (t-->0){
+            long a,b,c,n;
+            a=sc.nextLong();
+            b=sc.nextLong();
+            c=sc.nextLong();
+            n= sc.nextLong();
+            arr[0]=a;
+            arr[1]=b;
+            arr[2]=c;
+            Arrays.sort(arr);
+            long val=(arr[2]-arr[0])+(arr[2]-arr[1]);
+            long diff=n-val;
+            if (diff%3==0&&diff>=0){
+                System.out.println("YES");
+            }else {
+                System.out.println("NO");
+            }
+
         }
     }
 }

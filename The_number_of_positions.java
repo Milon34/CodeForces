@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class The_number_of_positions {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,24 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int n,a,b;
+        n=sc.nextInt();
+        a=sc.nextInt();
+        b=sc.nextInt();
+//        if(a>=b){
+//            System.out.println(n-a);
+//        }else {
+//            System.out.println(n-b);
+//        }
+//        List<Integer> l=new ArrayList<>();
+        int count=0;
+        for (int i=1;i<=n;i++){
+            if (i-1>=a&&n-i<=b){
+                count++;
+            }
         }
+       // System.out.println(Collections.min(l));
+        System.out.println(count);
     }
 }

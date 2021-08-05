@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Amusing_Joke {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,30 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        String s1 = sc.next();
+        String s2 = sc.next();
+        String s3 = sc.next();
+        String myS = s1 + s2;
+        int[] arr1 = new int[27];
+        for (int i = 0; i < myS.length(); i++) {
+            arr1[myS.charAt(i) - 65]++;
+        }
+        int[] arr2 = new int[27];
+        for (int i = 0; i < s3.length(); i++) {
+            arr2[s3.charAt(i) - 65]++;
+        }
+        boolean check = true;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                check = false;
+                break;
+            }
+        }
+        if (check) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
         }
     }
 }

@@ -1,12 +1,9 @@
 package Codeforces;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.io.*;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Wizard_of_Orz {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +34,24 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        PrintStream out = new PrintStream(System.out);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            int n = sc.nextInt();
+            String s = "989";
+            if (n <= 3) {
+                out.println(s.substring(0, n));
+                continue;
+            }
+            out.print(s);
+            for (int per = 3; per < n; per++) {
+                out.print((per - 3) % 10);
+            }
+            out.println();
+
         }
+        out.flush();
+        out.close();
     }
 }

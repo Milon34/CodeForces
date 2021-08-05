@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class cAPS_lOCK {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,27 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        String s = sc.next();
+        boolean check = true;
+        char ch;
+        for (int i = 1; i < s.length(); i++) {
+            if (Character.isLowerCase(s.charAt(i))) {
+                check = false;
+            }
+        }
+        if (check) {
+            for (int j = 0; j < s.length(); j++) {
+                if (Character.isLowerCase(s.charAt(j))) {
+                    ch = Character.toUpperCase(s.charAt(j));
+                } else {
+                    ch = Character.toLowerCase(s.charAt(j));
+                }
+                System.out.print(ch);
+            }
+        } else {
+            System.out.print(s);
         }
     }
 }
+

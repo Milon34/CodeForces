@@ -3,10 +3,11 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.io.PrintStream;
+import java.util.*;
 
-public class Game {
+
+public class Last_minute_enhancements {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +38,24 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        PrintStream out = new PrintStream(System.out);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            int n = sc.nextInt();
+            List<Integer> l = new ArrayList<>();
+            HashSet<Integer> h=new HashSet<>();
+            for (int i = 0; i < n; i++) {
+                int x = sc.nextInt();
+                if (Collections.binarySearch(l,x)>=0){
+                    x++;
+                }
+                l.add(x);
+                h.add(x);
+            }
+            out.println(h.size());
         }
+        out.flush();
+        out.close();
     }
 }

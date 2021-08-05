@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Devu_the_Singer_and_Churu_the_Joker {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,20 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int n,k;
+        n=sc.nextInt();
+        k=sc.nextInt();
+        int sum=0;
+        for (int i=0;i<n;i++){
+            sum+=sc.nextInt();
+        }
+//        System.out.println((int)Math.ceil ((double) (k-sum)/5));
+        int val=Math.abs(k-sum);
+        if (sum+(10*(n-1))<=k){
+            System.out.println(val/5);
+        }else {
+            System.out.println(-1);
         }
     }
 }

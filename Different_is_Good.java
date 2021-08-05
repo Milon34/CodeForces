@@ -3,10 +3,10 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.HashSet;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Different_is_Good {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +35,18 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int n=sc.nextInt();
+        char[]ch=sc.next().toCharArray();
+        HashSet<Character>h=new HashSet<>();
+        for (int i=0;i<n;i++){
+            h.add(ch[i]);
+        }
+        if (26-h.size()<n- h.size()){
+            System.out.println(-1);
+        }else {
+            System.out.println(n-h.size());
         }
     }
 }

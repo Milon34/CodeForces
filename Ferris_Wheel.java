@@ -3,10 +3,11 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Ferris_Wheel {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +36,38 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        PrintWriter out=new PrintWriter(System.out);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
         }
+        Arrays.sort(arr);
+        int i = 0, j = n - 1, take = 1, count = 0;
+        int cur = arr[j];
+        while (i < j) {
+            if (take == 2) {
+                count++;
+                j--;
+                cur = arr[j];
+                take = 1;
+            } else if (cur + arr[i] > k) {
+                count++;
+                j--;
+                cur = arr[j];
+                take = 1;
+            } else {
+                cur += arr[i];
+                i++;
+                take++;
+            }
+        }
+        out.println(count + 1);
+        out.flush();
+        out.close();
     }
+
 }

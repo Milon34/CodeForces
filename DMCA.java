@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class DMCA {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +37,17 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int a=sc.nextInt();
+        while (a>9) {
+            String s= String.valueOf(a);
+            int sum = 0,i=0,len=s.length();
+            while (len-->0){
+                sum += s.charAt(i) - 48;
+                i++;
+            }
+            a=sum;
         }
+        System.out.println(a);
     }
 }

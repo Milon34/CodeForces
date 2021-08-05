@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class New_Year_Transportation {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +34,28 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int[] arr = new int[n - 1];
+        for (int i = 0; i < n - 1; i++) {
+            arr[i] = sc.nextInt();
+        }
+        if (n == 1 && k == 1) {
+            System.out.println("YES");
+            return;
+        } else if (n == 1 && k != 1) {
+            System.out.println("NO");
+        } else {
+            for (int i = 0; i < n - 1;) {
+                i += arr[i];
+                if (i+1  == k) {
+                    System.out.println("YES");
+                    return;
+                }
+            }
+            System.out.println("NO");
         }
     }
 }

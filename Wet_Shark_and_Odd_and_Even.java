@@ -3,10 +3,10 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.io.PrintWriter;
+import java.util.*;
 
-public class Game {
+public class Wet_Shark_and_Odd_and_Even {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +35,26 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        PrintWriter out=new PrintWriter(System.out);
+        long n=sc.nextLong();
+        long sum=0;
+        List<Long> l=new ArrayList<>();
+        for (long i=0;i<n;i++){
+            long a=sc.nextLong();
+            if (a%2!=0){
+                l.add(a);
+            }
+            sum+=a;
         }
+        if (sum%2==0){
+            out.println(sum);
+        }else {
+            long min= Collections.min(l);
+            System.out.println(sum-min);
+        }
+        out.flush();
+        out.close();
     }
 }

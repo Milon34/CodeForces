@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Sereja_and_Dima {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,28 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
         }
+        //Arrays.sort(arr);
+        int sum1 = 0, sum2 = 0, i = 0, j = n - 1, max = 0, k = 0;
+        while (i <= j) {
+            if (arr[i] >= arr[j]) {
+                max = arr[i];
+                i++;
+            } else {
+                max = arr[j];
+                j--;
+            }
+            if (k % 2 == 0)
+                sum1 += max;
+            else
+                sum2 += max;
+            k++;
+        }
+        System.out.println(sum1 + " " + sum2);
     }
 }

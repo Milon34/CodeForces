@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class gcdLength {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -36,12 +35,33 @@ public class Game {
         }
     }
 
+    static long gcdCal(long a, long b) {
+        while (b > 0) {
+            long temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int n = sc.nextInt();
+        while (n-- > 0) {
+            long a, b, c;
+            a = sc.nextLong();
+            b = sc.nextLong();
+            c = sc.nextLong();
+            for (int i = 0; i <= a - c; i += 1) {
+                System.out.print(1);
+            }
+            for (int i = 1; i < c; i += 1) {
+                System.out.print(0);
+            }
+            System.out.print(" " + 1);
+            for (int i = 1; i < b; i += 1) {
+                System.out.print(0);
+            }
+            System.out.println();
         }
     }
 }

@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Mezo_Playing_Zoma {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +36,30 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int n=sc.nextInt();
+        String s=sc.next();
+        int left=0,right=0;
+        for (int i=0;i<n;i++){
+            if (s.charAt(i)=='L'){
+                left--;
+            }
+            if (s.charAt(i)=='R'){
+                right++;
+            }
         }
+        System.out.println(right-left+1);
+//        if (left<0&&right<0){
+//            System.out.println(Math.abs(left-right)+1);
+//        }else if (left<0&&right>0){
+//            System.out.println(Math.abs(left-right)+1);
+//        }else if (left>0&&right>0){
+//            System.out.println(Math.abs(left-right)+1);
+//        }else if (left>0&&right<0){
+//            System.out.println(Math.abs(left-right)+1);
+//        }else {
+//            System.out.println(0);
+//        }
+
     }
 }

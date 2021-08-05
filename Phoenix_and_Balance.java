@@ -3,10 +3,12 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Phoenix_and_Balance {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -37,11 +39,25 @@ public class Game {
     }
 
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        int t=sc.nextInt();
+        while (t-->0){
+            long n=sc.nextLong();
+            List<Long> l=new ArrayList<>();
+            for (long i=1;i<=n;i++){
+                l.add((long) Math.pow(2,i));
+            }
+            Collections.sort(l);
+            long sum=0;
+            for (long i=0;i<l.size()/2;i++){
+                sum+=l.get((int) i);
+            }
+            System.out.println(sum);
+//             if (l.size()<4){
+//                 System.out.println(l.get(l.size()-1)-l.get(0));
+//             }else {
+//                 System.out.println(Math.abs((l.get(l.size()-1)+l.get(0))-(l.get(l.size()-2)+l.get(1))));
+//             }
         }
     }
 }

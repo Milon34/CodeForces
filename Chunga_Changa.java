@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Chunga_Changa {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +34,24 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc=new RealScanner();
+        long x,y,z;
+        x=sc.nextLong();
+        y=sc.nextLong();
+        z=sc.nextLong();
+        long sum=0;
+        if (x%z==0&&y%z==0){
+            sum+=(x/z)+(y/z);
+        }else{
+            sum+=(x/z)+(y/z)+((x%z+y%z)/z);
+            //sum+=Math.max(x,y)%z;
         }
+        long rem=Math.max(x%z,y%z);
+        long balance=0;
+        if (x%z+y%z>=z){
+            balance=z-rem;
+        }
+        System.out.println(sum+" "+balance);
     }
 }

@@ -3,10 +3,9 @@ package Codeforces;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Game {
+public class Perfect {
     static class RealScanner {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
@@ -35,13 +34,32 @@ public class Game {
             return Long.parseLong(next());
         }
     }
-
+    public static String addChar(String str, char ch, int position) {
+        return str.substring(0, position) + ch + str.substring(position);
+    }
     public static void main(String[] args) {
-//        RealScanner sc=new RealScanner();
-        Scanner sc=new Scanner(System.in);
-        while (sc.hasNextInt()){
-            int n=sc.nextInt();
-            System.out.println("Yes");
+        RealScanner sc = new RealScanner();
+        int n = sc.nextInt();
+        while (n-- > 0) {
+            String s = sc.next();
+            boolean check = true;
+            int flag = 0;
+            for (int i = 0; i < s.length(); i++) {
+                String concat = addChar(s, 'a', i);
+                StringBuffer sb = new StringBuffer(concat);
+                String myS = String.valueOf(sb.reverse());
+                if (concat.equals(myS)) {
+                    check = false;
+                } else {
+                    System.out.println("YES");
+                    System.out.println(concat);
+                    flag = 1;
+                    break;
+                }
+            }
+            if (!check && flag == 0) {
+                System.out.println("NO");
+            }
         }
     }
 }
